@@ -14,7 +14,8 @@ public class ElizaApp {
 		Map<String,String> replacementMap = new HashMap<String,String>();
 		List<String> hedgeSet = new ArrayList<String>();
 		List<String> qualifierSet = new ArrayList<String>();
-
+		SetExtension<String> qualifierSetT = new SetExtension<String>();
+		
 		replacementMap.put("my", "your");
 		replacementMap.put("me", "you");
 		replacementMap.put("i", "you");
@@ -31,6 +32,10 @@ public class ElizaApp {
 		qualifierSet.add("Why do you say that");
 		qualifierSet.add("You seem to think that");
 		qualifierSet.add("So, you are concerned that");
+		
+		qualifierSetT.add("Why do you say that");
+		qualifierSetT.add("You seem to think that");
+		qualifierSetT.add("So, you are concerned that");
 		
 		StringBuilder output;
 		String[] input;
@@ -52,7 +57,8 @@ public class ElizaApp {
 			} else {
 				randomNum = rnd.nextInt(qualifierSet.size());
 				output = new StringBuilder(qualifierSet.get(randomNum));
-				output.append(" ");
+				//output = new StringBuilder(qualifierSetT.getRandomVal());
+				//output.append(" ");
 				for (String x: input) {
 					if (replacementMap.containsKey(x)) {
 						output.append(replacementMap.get(x) + " ");

@@ -43,6 +43,8 @@ public class ElizaApp {
 		in.nextLine();
 		System.out.println("Why is that?");
 		Random rnd = new Random();
+		Thread irritate = new Thread(new InterrupThread());
+		irritate.start();
 		while (true) {
 			input = in.nextLine().split(" ");
 			int randomNum = rnd.nextInt(2);
@@ -70,6 +72,7 @@ public class ElizaApp {
 			
 			System.out.println(output);
 		}
+		irritate.interrupt();
 		System.out.println("Bye. See you again!!");
 		in.close();
 		
